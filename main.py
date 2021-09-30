@@ -11,7 +11,7 @@ bot = telebot.TeleBot('YOUR TOKEN')
 @bot.message_handler(commands=['start', 'help'])
 def m(m):
     markup = types.InlineKeyboardMarkup()
-    markup.add(types.InlineKeyboardButton('Inline Mode', switch_inline_query='taylor-team'))
+    markup.add(types.InlineKeyboardButton('Inline Mode', switch_inline_query=''))
     bot.send_message(m.chat.id, 'Hi Welcome Github bot\ncommands : \n/git [username]\nUpgrade github bot #soon', reply_markup=markup)
     print 'bot send help command'
 
