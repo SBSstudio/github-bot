@@ -2,17 +2,18 @@ import telebot
 import urllib
 from telebot import types
 import requests
+import json
 import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
-bot = telebot.TeleBot('237420337:AAGBYvteY4eUnk-o4w8z_SjeJbpepuaWcsI')
+bot = telebot.TeleBot('237420337:AAGBYvteY4eUnk-o4w8z_SjeJbpepuaWcsI') # makan token shoma
 
 @bot.message_handler(commands=['start', 'help'])
 def m(m):
     markup = types.InlineKeyboardMarkup()
-    markup.add(types.InlineKeyboardButton('Inline Mode', switch_inline_query=''))
-    bot.send_message(m.chat.id, 'Hi Welcome Github bot\ncommands : \n/git [username]\nUpgrade github bot #soon', reply_markup=markup)
+    markup.add(types.InlineKeyboardButton('Inline Mode', switch_inline_query='taylor-team'))
+    bot.send_message(m.chat.id, 'Hi Welcome Github bot\ncommands : \n/git [username]\n\ncreated By Taylor Team \ndeveloper : @negative_officiall', reply_markup=markup)
     print 'bot send help command'
 
 @bot.message_handler(regexp='^(/git) (.*)')
@@ -57,10 +58,16 @@ def qq(q):
         followers = json_data['followers']
         following = json_data['following']
         avatar_url = json_data['avatar_url']
-        tmp = 'http://ntanjerome.org/wp-content/themes/tanji/images/iconmonstr-github-9-icon.png'
+        tmp = 'http://ericsteinborn.com/github-for-cats/img/ironcat.png'
         gitss = types.InlineQueryResultArticle('1', 'Git username\xE2\x9C\x8F\xEF\xB8\x8F', types.InputTextMessageContent('Name : <b>{}</b>\nUrl : <b>{}</b>\nBlog : <b>{}</b>\nLocation : <b>{}</b>\nBio : <i>{}</i>\n\nRepos : <code>{}</code>\nfollowers : <code>{}</code>\nfollowing : <code>{}</code>'.format(name,url_html,blog,location,bio,public_repos,followers,following), parse_mode="HTML"), thumb_url=tmp)
         avatarr = types.InlineQueryResultPhoto('2', '{}'.format(avatar_url), '{}'.format(avatar_url), description='avatar', caption='Name : {}\nUrl : {}\nBlog : {}\nLocation : {}\nBio : {}\n\nRepos : {}'.format(name,url_html,blog,location,bio,public_repos))
         bot.answer_inline_query(q.id, [gitss, avatarr], cache_time=1)
 
 bot.polling(True)
-
+# _____           _              _____
+#|_   _|_ _ _   _| | ___  _ __  |_   _|__  __ _ _ __ ___
+#  | |/ _` | | | | |/ _ \| '__|   | |/ _ \/ _` | '_ ` _ \
+#  | | (_| | |_| | | (_) | |      | |  __/ (_| | | | | | |
+#  |_|\__,_|\__, |_|\___/|_|      |_|\___|\__,_|_| |_| |_|
+#           |___/
+#Copy right  2016 Negative - Taylor Team
